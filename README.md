@@ -1,41 +1,39 @@
-Task 6: Sales Trend Analysis Using Aggregations
+# Sales Trend Analysis Using Aggregations
 
-Objective
+## 📌 Project Objective
+This project focuses on analyzing monthly e-commerce revenue and order volumes from an online sales dataset. The primary goal is to practice grouping data, using aggregate functions, and analyzing time-based trends using SQL.
 
-Analyze monthly revenue and order volume using SQL aggregation functions.
+---
 
-Tools Used
+## 🛠️ Tools & Environment
+* **Database Engine:** SQLite (compatible syntax provided for PostgreSQL/MySQL)
+* **Platform:** [SQLiteOnline IDE](https://sqliteonline.com/)
+* **Dataset:** `online_sales` (Internal Mock Data)
 
-- SQLite Online IDE
-- SQL
-- GitHub
+---
 
-Dataset
+## 💾 Database Schema & Data Setup
+The analysis utilizes an `orders` structure within the `online_sales` table containing the following attributes:
+* `order_id`: Unique identifier for each order.
+* `order_date`: The date the transaction occurred.
+* `amount`: Total revenue generated from the order.
+* `product_id`: Identifier for the item sold.
 
-online_sales table containing:
+### Table Creation and Mock Data Script
+```sql
+DROP TABLE IF EXISTS online_sales;
 
-- order_id
-- order_date
-- amount
-- product_id
+CREATE TABLE online_sales (
+    order_id INTEGER,
+    order_date DATE,
+    amount DECIMAL(10,2),
+    product_id INTEGER
+);
 
-SQL Concepts Used
-
-- SUM()
-- COUNT(DISTINCT)
-- GROUP BY
-- ORDER BY
-- strftime()
-
-Query Result
-
-Year| Month| Revenue| Orders
-2024| 01| 2700| 2
-2024| 02| 4000| 2
-2024| 03| 5500| 2
-2024| 04| 6000| 2
-2024| 05| 7500| 2
-
-Outcome
-
-Successfully analyzed monthly sales trends and calculated revenue and order volume using SQL aggregation functions.
+INSERT INTO online_sales (order_id, order_date, amount, product_id) VALUES
+(1, '2026-01-15', 150.00, 10),
+(2, '2026-01-22', 210.50, 11),
+(3, '2026-02-05', 340.00, 10),
+(4, '2026-02-18', 120.00, 12),
+(5, '2026-03-02', 500.00, 11),
+(6, '2026-03-25', 250.75, 10);
